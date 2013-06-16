@@ -14,6 +14,7 @@ $page->setActivePage(basename($app_dir));
 
 //********************************************************************
 
+$page->addScript("http://". SITE_URL . "/c/js/phpjs/functions/url/urlencode.js");
 $page->addStylesheet("$app_dir/css/screen.css");
 $page->addStylesheet("$app_dir/css/style.css");
 
@@ -38,7 +39,7 @@ $scripts = array(
     "jsl.format.js",
     "jsl.interactions.js",
     "reset.js",
-    "recaptcha_ajax.js",
+    /*"recaptcha_ajax.js",*/
     /*"add-hackerspace.js"*/
 );
 

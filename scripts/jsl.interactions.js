@@ -135,10 +135,8 @@ jsl.interactions = (function () {
 					api = parseFloat(spaceapi.api);
 				}
 				
-				// we need to unset some values because if some special characters are used
-				// they won't be urlencoded correctly with escape, maybe not all variables
-				// are covered so some space api implementation still might fail
-				// See http://github.com/slopjong/openspacelint/issues/50
+				// we unset some values to reduce the amount of problems with special characters
+				// possibly not correctly urlencoded. And less bandwidth is required.
 				if(api != 0)
 				{
 					if(spaceapi.hasOwnProperty("space"))
@@ -164,11 +162,8 @@ jsl.interactions = (function () {
 				
 				// uglify the json to remove unwanted whitespaces
 				var uglifiedJSON = JSON.stringify(spaceapi);
-				
 
-				$.getJSON( site_url + "/validate/" + escape(uglifiedJSON))
-				// see issue #50
-				//$.getJSON( site_url + "/validate/?json=" + encodeURIComponent(uglifiedJSON))
+                $.getJSON( site_url + "/validate/", { "json": urlencode(uglifiedJSON) })
 				.success(function(results){ 
 					
 					if(results.hasOwnProperty("error"))
