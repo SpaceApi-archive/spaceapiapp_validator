@@ -206,7 +206,7 @@ jsl.interactions = (function () {
 							'<div><h1>Your JSON is not compliant to the specs '+ version +'</h1></div>' +
 							'<br><pre>'+ error_msg +'</pre><br>' +
 							'Please check the <a style="text-decoration: underline;" href="'+ site_url +'/specs/'+ version +'" target="_blank">specs '+ version +'</a>. ' +
-							((version == results.draft) ? 'This is still a draft, see the <a style="text-decoration: underline;" href="http://openspace.slopjong.de/specs/changelog" target="_blank">changelog</a>.' : "") +
+							((version == results.draft) ? 'This is still a draft, see the <a style="text-decoration: underline;" href="specs/changelog" target="_blank">changelog</a>.' : "") +
 							'</div>').addClass("error");
 							
 							$("#results-specs-container").append(error_div).show();
