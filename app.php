@@ -6,17 +6,11 @@
 if(!defined("APPSDIR"))
     die("Direct access is not allowed!");
 
-$app_dir = realpath(dirname(__FILE__));
-// remove the full path of the document root
-$app_dir = str_replace(ROOTDIR, "", $app_dir);
-
-$page->setActivePage(basename($app_dir));
-
 //********************************************************************
 
-$page->addScript("http://". SITE_URL . "/c/js/phpjs/functions/url/urlencode.js");
-$page->addStylesheet("$app_dir/css/screen.css");
-$page->addStylesheet("$app_dir/css/style.css");
+$page->addScript("c/js/phpjs/functions/url/urlencode.js", true);
+$page->addStylesheet("css/screen.css");
+$page->addStylesheet("css/style.css");
 
 // TODO: is jQuery UI still needed? This was used to show a message box
 //       when a wrong URL format was provided in the 'add hackerspace field'
@@ -30,8 +24,8 @@ $page->addStylesheet("$app_dir/css/style.css");
 //$page->addStylesheet("$app_dir/lib/jquery-ui/ui-lightness/jquery-ui-1.8.19.custom.css");
 
  
-$page->addScript("$app_dir/lib/jquery-linedtextarea/jquery-linedtextarea.js");
-$page->addStylesheet("$app_dir/lib/jquery-linedtextarea/jquery-linedtextarea.css");
+$page->addScript("lib/jquery-linedtextarea/jquery-linedtextarea.js");
+$page->addStylesheet("lib/jquery-linedtextarea/jquery-linedtextarea.css");
 
 $scripts = array(
     "openspace.js",
@@ -44,7 +38,7 @@ $scripts = array(
 );
 
 foreach($scripts as $script)
-    $page->addScript("$app_dir/scripts/$script");
+    $page->addScript("scripts/$script");
 
 unset($scripts);
 
